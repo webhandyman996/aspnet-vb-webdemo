@@ -1,5 +1,7 @@
 # ASP.NET / VB 網頁程式設計教學範例
 
+🔗 **教學網頁（3支demo靜態預覽）：https://webhandyman996.github.io/aspnet-vb-webdemo/**
+
 伺服網頁程式設計課程教學範例，使用 ASP.NET Web Forms + VB 語言，示範網頁伺服器控制項與程式邏輯。
 
 ## `Ch03VBasic/`：VB 語法基礎
