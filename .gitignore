@@ -1,0 +1,6 @@
+.vs/
+bin/
+obj/
+*.docx
+Thumbs.db
+desktop.ini

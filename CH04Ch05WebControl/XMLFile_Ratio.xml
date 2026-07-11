@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Advertisements>
+  <Ad>
+    <ImageUrl>Images/Ad01.png</ImageUrl>
+    <Impressions>50</Impressions>
+  </Ad>
+  <Ad>
+    <ImageUrl>Images/Ad02.png</ImageUrl>
+    <Impressions>30</Impressions>
+  </Ad>
+  <Ad>
+    <ImageUrl>Images/Ad03.png</ImageUrl>
+    <Impressions>20</Impressions>
+  </Ad>
+</Advertisements>

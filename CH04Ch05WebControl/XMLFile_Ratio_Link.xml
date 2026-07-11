@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Advertisements>
+  <Ad>
+    <ImageUrl>Images/Ad01.png</ImageUrl>
+    <Impressions>50</Impressions>
+    <NavigateUrl>http://www.chwa.com.tw/aboutus/index/index.html</NavigateUrl>
+  </Ad>
+  <Ad>
+    <ImageUrl>Images/Ad02.png</ImageUrl>
+    <Impressions>30</Impressions>
+    <NavigateUrl>http://misccp3.cnu.edu.tw/myblog/</NavigateUrl>
+  </Ad>
+  <Ad>
+    <ImageUrl>Images/Ad03.png</ImageUrl>
+    <Impressions>20</Impressions>
+    <NavigateUrl>https://www.google.com.tw/</NavigateUrl>
+  </Ad>
+</Advertisements>
