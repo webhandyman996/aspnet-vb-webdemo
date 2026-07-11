@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASP.NET / VB 網頁程式設計教學範例（靜態預覽）</title>
+  <style>
+    :root {
+      --bg: #f7f3ea;
+      --panel: #fffef9;
+      --text: #1e1b18;
+      --muted: #5a5047;
+      --accent: #d96f32;
+      --accent-2: #1f7a8c;
+      --line: #e7dccd;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, #ffe6c6 0, transparent 25%),
+        radial-gradient(circle at 85% 15%, #cde9ef 0, transparent 23%),
+        linear-gradient(180deg, #fdf8ef 0%, #f5eee2 100%);
+      min-height: 100vh;
+    }
+    .container { width: min(1000px, 92vw); margin: 0 auto; padding: 2.5rem 0 4rem; }
+    .hero {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 2rem;
+    }
+    h1 { margin: 0; font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.3; }
+    .hero p { margin: 1rem 0 0; color: var(--muted); font-size: 1.02rem; }
+    .badge {
+      display: inline-block;
+      margin-bottom: 0.9rem;
+      background: #fff0e4;
+      color: #9b4c1f;
+      border: 1px solid #f4d0b8;
+      border-radius: 999px;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    h2 { margin: 2.4rem 0 0.4rem; font-size: clamp(1.2rem, 2.3vw, 1.5rem); color: var(--accent-2); }
+    .section-desc { margin: 0 0 1rem; color: var(--muted); }
+    .demo-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .demo-card .note {
+      font-size: 0.82rem;
+      color: #9b4c1f;
+      background: #fff0e4;
+      border-radius: 8px;
+      padding: 0.4rem 0.7rem;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .actions { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: #fff;
+    }
+    .btn:hover { border-color: var(--accent-2); color: var(--accent-2); }
+    .footer { margin-top: 2.5rem; font-size: 0.85rem; color: #7b6f65; }
+    .footer a { color: var(--accent-2); }
+
+    /* mock frame styling: mimic a plain, unstyled ASP.NET Web Forms page */
+    .mock-frame {
+      border: 1px solid #999;
+      border-radius: 4px;
+      background: #ffffff;
+      padding: 16px;
+      font-family: "Times New Roman", serif;
+      color: #000;
+      font-size: 15px;
+    }
+    .mock-frame .browser-bar {
+      display: flex;
+      gap: 6px;
+      margin: -16px -16px 12px -16px;
+      padding: 8px 12px;
+      background: #e8e8e8;
+      border-bottom: 1px solid #ccc;
+      border-radius: 4px 4px 0 0;
+    }
+    .mock-frame .dot { width: 10px; height: 10px; border-radius: 50%; background: #ccc; }
+    .mock-frame table { border-collapse: collapse; width: 100%; }
+    .mock-frame td { padding: 4px; vertical-align: middle; }
+    .mock-item img { width: 160px; height: auto; border-radius: 2px; }
+    .mock-item { text-align: center; border: 1px solid #666; }
+    .mock-btn {
+      font-family: "Times New Roman", serif;
+      font-size: 14px;
+      padding: 2px 10px;
+      border: 1px solid #767676;
+      background: #e1e1e1;
+      border-radius: 2px;
+      display: inline-block;
+      cursor: default;
+    }
+    .mock-input {
+      border: 1px solid #7a7a7a;
+      padding: 2px 4px;
+      font-family: "Times New Roman", serif;
+      font-size: 14px;
+      width: 40px;
+      text-align: center;
+      display: inline-block;
+    }
+    .mock-input.wide { width: 150px; text-align: left; }
+    .mock-underline { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <span class="badge">ASP.NET / VB</span>
+      <h1>ASP.NET / VB 網頁程式設計教學範例（靜態預覽）</h1>
+      <p>下面是三支範例的<strong>畫面靜態預覽</strong>（依程式碼手動重建的初始畫面示意，並非實際執行結果，也無法在此頁互動）。ASP.NET Web Forms 需要 IIS/.NET 伺服器執行 <code>runat="server"</code> 程式碼，GitHub Pages 只能放靜態檔案，無法真正執行；如需實際操作請用 Visual Studio 開啟對應 <code>.sln</code> 專案執行。</p>
+    </section>
+
+    <section>
+      <h2>0401 亂數範例 randomValue</h2>
+      <div class="demo-card">
+        <p>每次載入頁面會產生兩個 1~100 的隨機整數，並比較大小顯示「大於／小於／等於」。</p>
+        <div class="mock-frame">
+          <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          隨機亂數1:<span class="mock-underline">42</span><br /><br />
+          隨機亂數2:<span class="mock-underline">17</span><br /><br />
+          隨機亂數1 <span class="mock-underline">大於</span> 隨機亂數2
+        </div>
+        <div class="actions">
+          <a class="btn" href="https://github.com/webhandyman996/aspnet-vb-webdemo/blob/master/CH04Ch05WebControl/0401%E4%BA%82%E6%95%B8%E7%AF%84%E4%BE%8BrandomValue.aspx" target="_blank" rel="noopener">查看原始碼</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>0403 密碼登錄介面</h2>
+      <div class="demo-card">
+        <p>示範帳號密碼驗證：內建 4 組測試帳號（AAA/aA1234 等），輸入後按登入會比對帳號密碼並顯示成功或失敗訊息，密碼欄位另有格式驗證（6~12碼英數字）。</p>
+        <div class="mock-frame">
+          <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          帳號：<span class="mock-input wide">AAA</span><br /><br />
+          密碼：<span class="mock-input wide">••••••</span>
+          <span class="mock-btn">登入</span><br /><br />
+          AAA：登入成功！
+        </div>
+        <div class="actions">
+          <a class="btn" href="https://github.com/webhandyman996/aspnet-vb-webdemo/blob/master/CH04Ch05WebControl/0403%E5%AF%86%E7%A2%BC%E7%99%BB%E9%8C%84%E4%BB%8B%E9%9D%A2.aspx" target="_blank" rel="noopener">查看原始碼</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>0503 使用者自助訂餐系統</h2>
+      <div class="demo-card">
+        <p>6 樣餐點各有圖片與加減按鈕，點擊後即時累計數量並計算總價、列出已選購項目清單。</p>
+        <div class="mock-frame">
+          <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <table>
+            <tr>
+              <td class="mock-item">
+                <b>培根莫札瑞拉起司漢堡</b><br />
+                <img src="images/培根莫札瑞拉起司漢堡-1514962518.jpg" alt="培根莫札瑞拉起司漢堡" /><br />
+                <span class="mock-input">0</span>
+                <span class="mock-btn">+</span> <span class="mock-btn">-</span>
+              </td>
+              <td class="mock-item">
+                <b>焦糖布蕾鬆餅</b><br />
+                <img src="images/焦糖布蕾鬆餅-1514962599.jpg" alt="焦糖布蕾鬆餅" /><br />
+                <span class="mock-input">0</span>
+                <span class="mock-btn">+</span> <span class="mock-btn">-</span>
+              </td>
+              <td class="mock-item">
+                <b>澳洲-和牛堡</b><br />
+                <img src="images/澳洲m9-和牛堡-1514962695.jpg" alt="澳洲和牛堡" /><br />
+                <span class="mock-input">0</span>
+                <span class="mock-btn">+</span> <span class="mock-btn">-</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="mock-item">
+                <b>極品魚子醬鮭魚堡</b><br />
+                <img src="images/極品魚子醬鮭魚堡-1514962759.jpg" alt="極品魚子醬鮭魚堡" /><br />
+                <span class="mock-input">0</span>
+                <span class="mock-btn">+</span> <span class="mock-btn">-</span>
+              </td>
+              <td class="mock-item">
+                <b>鳳梨照燒雞肉漢堡</b><br />
+                <img src="images/鳳梨照燒雞肉漢堡-1514962561.jpg" alt="鳳梨照燒雞肉漢堡" /><br />
+                <span class="mock-input">0</span>
+                <span class="mock-btn">+</span> <span class="mock-btn">-</span>
+              </td>
+              <td class="mock-item">
+                <b>夏威夷漢堡</b><br />
+                <img src="images/14066479-241025536297367-1855981471017768253-o-1514962990.jpg" alt="夏威夷漢堡" /><br />
+                <span class="mock-input">0</span>
+                <span class="mock-btn">+</span> <span class="mock-btn">-</span>
+              </td>
+            </tr>
+          </table>
+          <br />
+          總價： 0元<br /><br />
+          選購項目：<br />
+        </div>
+        <div class="actions">
+          <a class="btn" href="https://github.com/webhandyman996/aspnet-vb-webdemo/blob/master/CH04Ch05WebControl/0503%E4%BD%BF%E7%94%A8%E8%80%85%E8%87%AA%E5%8A%A9%E8%A8%82%E9%A4%90%E7%B3%BB%E7%B5%B1.aspx" target="_blank" rel="noopener">查看原始碼</a>
+        </div>
+      </div>
+    </section>
+
+    <p class="footer">Repo: <a href="https://github.com/webhandyman996/aspnet-vb-webdemo" target="_blank" rel="noopener">webhandyman996/aspnet-vb-webdemo</a></p>
+  </main>
+</body>
+</html>
